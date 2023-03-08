@@ -1,0 +1,21 @@
+<script>
+    const correctPIN = "1234"; // Set the correct PIN here
+let attempts = 4; // Number of attempts allowed before blocking
+
+function verifyPIN() {
+  const enteredPIN = prompt("Enter your PIN:"); // Get the user's input
+  if (enteredPIN === correctPIN) {
+    alert("PIN verified!"); // If the PIN is correct, show success message
+  } else {
+    attempts--; // Decrement attempts left
+    if (attempts > 0) {
+      alert(`Incorrect PIN. You have ${attempts} attempts left.`); // Show remaining attempts
+      verifyPIN(); // Call the function again to allow another attempt
+    } else {
+      alert("You have been blocked. Please contact customer support."); // If no attempts left, block the user
+    }
+  }
+}
+
+verifyPIN(); // Call the function to start the PIN verification process
+</script>
